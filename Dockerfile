@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM ubuntu:24.04
 
 LABEL maintainer="serv-tec" \
       org.label-schema.schema-version="1.0" \

@@ -2,7 +2,7 @@ name: Docker Image
 
 on:
   schedule:
-    - cron: "0 4 * * *" # everyday at 10am
+    - cron: "0 5 * * *" # everyday at 5am
   pull_request_target:
     branches: ["latest"]
   push:

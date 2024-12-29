@@ -2,13 +2,11 @@ name: Docker Image
 
 on:
   schedule:
-    - cron: "0 5 * * *" # everyday at 5am
+    - cron: "0 10 * * *" # everyday at 10am
   pull_request_target:
-    branches:
-      - main
+    branches: ["latest"]
   push:
-    branches:
-      - main
+    branches: ["latest"]
     tags: ["v*.*.*"]
 
 env:
@@ -56,7 +54,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.docker_meta.outputs.tags }}
           labels: ${{ steps.docker_meta.outputs.labels }}
-      
+
       - name: Docker Scout
         id: docker-scout-cves
         if: ${{ github.event_name != 'pull_request_target' }}
@@ -88,4 +86,3 @@ jobs:
           platform: "linux/amd64"
           exit-on: vulnerability,policy
           summary: true
-

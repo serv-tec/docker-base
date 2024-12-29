@@ -61,7 +61,7 @@ jobs:
         uses: docker/scout-action@v1
         with:
           command: cves
-          organization: beevelop
+          organization: serv-tec
           image: ${{ env.imageName }}:latest
           to-latest: true
           github-token: ${{ secrets.GITHUB_TOKEN }} # to be able to write the comment
@@ -80,7 +80,7 @@ jobs:
         uses: docker/scout-action@main
         with:
           command: compare
-          organization: beevelop
+          organization: serv-tec
           image: ${{ steps.docker_meta.outputs.tags }}
           only-severities: critical,high
           platform: "linux/amd64"
